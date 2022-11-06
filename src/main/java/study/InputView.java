@@ -3,7 +3,7 @@ package study;
 import java.util.Scanner;
 
 public class InputView {
-    public static int[] takeInput() {
+    public static BallGroup takeInput() {
         int[] inputs = new int[3];
         System.out.println("숫자를 입력해 주세요.: ");
         Scanner scanner = new Scanner(System.in);
@@ -14,6 +14,6 @@ public class InputView {
             inputs[1] = (input / 10) % 10;
             inputs[2] = input % 10;
         }
-        return inputs;
+        return new BallGroup(inputs);
     }
 }

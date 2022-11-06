@@ -7,17 +7,9 @@ public class BaseBallGameResult {
 
     private final int ball;
 
-    public BaseBallGameResult(int strike, int ball) {
+    private BaseBallGameResult(int strike, int ball) {
         this.strike = strike;
         this.ball = ball;
-    }
-
-    public int getStrike() {
-        return strike;
-    }
-
-    public int getBall() {
-        return ball;
     }
 
     @Override
@@ -32,4 +24,35 @@ public class BaseBallGameResult {
     public int hashCode() {
         return Objects.hash(strike, ball);
     }
+
+    public boolean isSameStrikeAndBall(int strike, int ball) {
+        return this.strike == strike && this.ball == ball;
+    }
+
+    public int getStrike() {
+        return strike;
+    }
+
+    public int getBall() {
+        return ball;
+    }
+
+    public static BaseBallGameResult getGameResult(BallGroup answer, BallGroup input) {
+        int strike = 0;
+        int ball = 0;
+
+        for (int i = 0; i < input.getBalls().size(); i++) {
+            Ball inputBall = input.getBalls().get(i);
+            Ball answerBall = answer.getBalls().get(i);
+            if (inputBall.getNumber() == answerBall.getNumber()) {
+                strike++;
+                continue;
+            }
+            if (answer.isContainNumber(inputBall.getNumber())) {
+                ball++;
+            }
+        }
+        return new BaseBallGameResult(strike, ball);
+    }
+
 }
