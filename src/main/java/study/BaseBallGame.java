@@ -4,7 +4,7 @@ public class BaseBallGame {
     private BallGroup answer;
 
     public BaseBallGame() {
-        this.answer = RandomBallMaker.getInstance().initRandomBallGroup();
+        this.answer = RandomBallMaker.initRandomBallGroup();
     }
 
     public void startGame() {
@@ -16,7 +16,7 @@ public class BaseBallGame {
             if (ResultView.isEndGame()) {
                 break;
             }
-            this.answer = RandomBallMaker.getInstance().initRandomBallGroup();
+            this.answer = RandomBallMaker.initRandomBallGroup();
         }
     }
 

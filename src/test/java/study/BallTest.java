@@ -25,7 +25,7 @@ public class BallTest {
     @Test
     @DisplayName("랜덤 볼이 잘 생성되었나 확인")
     void ballMakeRandomTest() {
-        BallGroup ballGroup = RandomBallMaker.getInstance().initRandomBallGroup();
+        BallGroup ballGroup = RandomBallMaker.initRandomBallGroup();
         assertThat(ballGroup.getBalls()).hasSize(3);
     }
 }

@@ -3,22 +3,12 @@ package study;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomBallMaker {
-    private static RandomBallMaker instance = null;
-    private final Random random = new Random();
-    
-    private RandomBallMaker() {
-    }
 
-    public static RandomBallMaker getInstance() {
-        if (instance == null) {
-            instance = new RandomBallMaker();
-        }
-        return instance;
-    }
-
-    public BallGroup initRandomBallGroup() {
+    public static BallGroup initRandomBallGroup() {
+        Random random = ThreadLocalRandom.current();
         Map<Integer, Boolean> numberMap = new HashMap<>(3);
         int[] randomNums = new int[3];
         for (int i = 0; i < randomNums.length; i++) {
